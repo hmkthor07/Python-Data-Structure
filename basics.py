@@ -1,5 +1,5 @@
 def line():
-    print("-----------------------")
+    print("---------------------------------------------")
 
 # string
 x = 'frog'
@@ -180,3 +180,200 @@ line()
 y = ['ping','cow','horse']
 a,b,c = y
 print(a,b,c)
+
+# Lists are sotable
+# details of the List
+x = list()
+y = ['a',25,'dog',8.43]
+tuple1 = (10,20)
+z = list(tuple1)
+
+line()
+# list comprehension
+a = [m for m in range(8)]
+print(a)
+
+b = [i**2 for i in range(10) if i>4]
+print(b)
+
+line()
+# delete
+x = [1,2,3,4,5]
+del(x[1])
+print(x)
+del(x)
+#print(x) # list x no longer exists
+
+line()
+# append
+x = [1,2,3,4,5]
+x.append(8)
+print(x)
+
+line()
+#extend
+x = [1,2,3]
+y = [4,5]
+x.extend(y)
+print(x)
+
+line()
+# insert : insert an iten at a given index
+x = [1,2,3]
+x.insert(1,5)
+print(x)
+x.insert(1,['a','b'])
+print(x)
+
+line()
+# pop : pops last item off list and returns item
+x=[1,2,3,4]
+val = x.pop()
+x.append(val)
+print(x)
+
+line()
+# remove - remove first instance of an item
+x = [1,3,5,3,7]
+x.remove(3)
+print(x)
+
+line()
+x = [1,5,3,7]
+x.reverse()
+print(x)
+
+line()
+# sorted just return a new sorted list but sort is an in-place sort function
+x = [5,3,7,1]
+x.sort()
+print(x)
+
+# reverse sort (descending sort)
+x = [5,3,8,6]
+x.sort(reverse=True)
+print(x)
+
+line()
+# Tuples 
+# 1. Immutable 
+# 2. Useful for fixed data
+# 3. Faster than Lists
+# 4. Sequence type
+
+x = ()
+print(x, type(x))
+x = (1,2,3,)
+print(x, type(x))
+x = 1,2,3
+print(x, type(x))
+x = 1,
+print(x, type(x))
+
+x = [1,2,3]
+x = tuple(x)
+print(x, type(x))
+
+line()
+# Tuples are immutable
+x = (1,2,3)
+# del(x[1]) # fails
+# x[1] = 8 # fails
+print(x)
+
+# However, a list in a tuple can be mutable
+y = ([1,2],3)
+del(y[0][1])
+print(y)
+
+y += (4,)
+print(y)
+
+
+line()
+# Sets : non-duplicate items / Very fast access vs lists / Math Set options / Sets are unordered.
+
+x = {3,5,3,5}
+print(x)
+
+y = set()
+print(y)
+
+list1 = [3,5,3,5]
+print(list1)
+z = set(list1)
+print(z)
+
+line()
+x = {3,8,5}
+print(x)
+x.add(7)
+print(x)
+x.remove(5)
+print(x)
+
+line()
+# get length of set x
+print(len(x))
+print(8 in x)
+print(x.pop(), x) # pop random item from set x
+# delete all items from set x
+x.clear()
+print(x)
+
+line()
+# Mathematical set operations
+set1 = {1,2,3}
+set2 = {3,4,5}
+
+print(set1 & set2) #intersection
+print(set1 | set2) # union
+print(set1 ^ set2) # symmetric difference
+print(set1 - set2)
+print(set1 <= set2)
+print(set1 >= set2)
+
+line()
+# Dictionaries : Key/Value pairs / Associative array like Java HashMap / Dicts are unordered
+x = {'pork':25.3, 'beef':33.8, 'chicken':22.7}
+print(x)
+x = dict([('pork',25.3),('beef',33.8),('chicken',22.7)])
+print(x)
+x = dict(pork=22, beef=4, chicken=7)
+print(x)
+
+line()
+x['shrimp'] = 38.2
+print(x)
+x['pork'] = 100
+print(x)
+
+del(x['shrimp'])
+print(x)
+
+print(len(x))
+
+# delete all items from dict x
+x.clear()
+print(x)
+
+del(x) # free up the memory (entirely deleted)
+#print(x)
+
+line()
+# Accessing keys and values in a dict
+x = {'pork':25.3, 'beef':33.8, 'chicken':22.7}
+print(x.keys())
+print(x.values())
+print(x.items())
+
+# check membership in x_keys (only looks in keys, not values)
+print('beef' in x)
+print(22 in x.values())
+
+# iterating a dict
+for key in x:
+    print(key, x[key])
+
+for k, v in x.items():
+    print(k,v)
