@@ -35,4 +35,32 @@ class Tree:
         self.left = left
         self.right = right
 
-    
+    def insert(self,data):
+        if self.data == data:
+            return False # duplicate value
+        elif self.data > data:
+            if self.left is not None:
+                return self.left.insert(data) # leaf 에 적용할 코드
+            else:
+                self.left = Tree(data)  # Recursive 
+                return True
+        else:
+            if self.right is not None:
+                return self.right.insert(data)
+            else:
+                self.right = Tree(data)
+                return True
+
+    def find(self,data):
+        if self.data == data:
+            return data
+        elif self.data > data:
+            if self.left.data is not None:
+                return self.left.find(data)
+            else:
+                return False
+        elif self.data < data:
+            if self.right.data is not None:
+                return self.right.find(data)
+            else:
+                return False    
